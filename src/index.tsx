@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 
 import store from './duck/store';
 import Login from './pages/Auth/Login';
+import ForgotPassword from './pages/Auth/ForgotPassword';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -16,6 +17,10 @@ ReactDOM.render(
                 <Routes>
                     <Route path="/" element={<App />} />
                     <Route path="/login" element={<Login />} />
+                    <Route
+                        path="/forgot-password"
+                        element={<ForgotPassword />}
+                    />
                 </Routes>
             </BrowserRouter>
         </Provider>

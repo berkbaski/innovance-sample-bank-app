@@ -50,7 +50,7 @@ const Login = () => {
 
     return (
         <AuthLayout>
-            <h1 className={styles.authFormTitle}>Login</h1>
+            <h1 className={styles.authFormTitle}>{i18n.t('login')}</h1>
             <p className={styles.authFormSubtitle}>
                 {i18n.t('enterYourCredentials')}
             </p>

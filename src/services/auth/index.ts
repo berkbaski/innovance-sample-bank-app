@@ -13,3 +13,11 @@ export function login(username: string, password: string): Promise<User> {
         }, 500);
     });
 }
+
+export function forgotPassword(username: string): Promise<boolean> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(true);
+        }, 500);
+    });
+}
