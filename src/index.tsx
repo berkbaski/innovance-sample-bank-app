@@ -11,13 +11,21 @@ import store from './duck/store';
 import Login from './pages/Auth/Login';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import Register from './pages/Auth/Register';
+import ProtectedRoute from './pages/ProtectedRoute';
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<App />} />
+                    <Route
+                        path="/"
+                        element={
+                            <ProtectedRoute>
+                                <App />
+                            </ProtectedRoute>
+                        }
+                    />
                     <Route path="/login" element={<Login />} />
                     <Route
                         path="/forgot-password"
