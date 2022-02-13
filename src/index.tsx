@@ -7,8 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 import store from './duck/store';
+
 import Login from './pages/Auth/Login';
 import ForgotPassword from './pages/Auth/ForgotPassword';
+import Register from './pages/Auth/Register';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -21,6 +23,7 @@ ReactDOM.render(
                         path="/forgot-password"
                         element={<ForgotPassword />}
                     />
+                    <Route path="/register" element={<Register />} />
                 </Routes>
             </BrowserRouter>
         </Provider>

@@ -5,3 +5,11 @@ export type User = {
     firstName: string;
     lastName: string;
 };
+
+export type RegisterPayload = {
+    username: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+};

@@ -16,5 +16,11 @@
     "requiredFieldsMustBeFilled": "Required fields must be filled",
     "forgotPassword": "Forgot Password",
     "pleaseEnterYourEmail": "Please enter your email or username",
-    "forgotPasswordSuccess": "We have sent your new password to your email address"
+    "forgotPasswordSuccess": "We have sent your new password to your email address",
+    "enterYourInfo": "Please enter your information",
+    "username": "Username",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "weSentAnEmailForConfirmation": "Registration successful. We have sent an email for confirmation"
 }

@@ -1,4 +1,4 @@
-import { User } from './types';
+import { RegisterPayload, User } from './types';
 
 export function login(username: string, password: string): Promise<User> {
     return new Promise((resolve) => {
@@ -15,6 +15,14 @@ export function login(username: string, password: string): Promise<User> {
 }
 
 export function forgotPassword(username: string): Promise<boolean> {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(true);
+        }, 500);
+    });
+}
+
+export function register(options: RegisterPayload): Promise<boolean> {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(true);
