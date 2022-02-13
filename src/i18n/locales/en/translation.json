@@ -3,5 +3,14 @@
     "loggedIn": "Logged in",
     "loggedOut": "Logged out",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "welcomeTo": "Welcome to",
+    "simpleBank": "Simple Bank",
+    "enterYourCredentials": "Please enter your credentials",
+    "usernameOrEmail": "Username or Email",
+    "password": "Password",
+    "dontHaveAnAccount": "Don't have an account?",
+    "register": "Register",
+    "forgotYourPassword": "Forgot your password?",
+    "reset": "Reset"
 }

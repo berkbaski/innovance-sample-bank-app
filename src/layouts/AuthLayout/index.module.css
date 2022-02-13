@@ -1,0 +1,15 @@
+.authSlogan {
+    @apply text-3xl md:text-4xl p-4 text-center mb-4;
+}
+
+.authContainer {
+    @apply grid grid-cols-1 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-4;
+}
+
+.authContainerLeftSection {
+    @apply col-span-2;
+}
+
+.authContainerRightSection {
+    @apply col-span-1;
+}

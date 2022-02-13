@@ -3,5 +3,14 @@
     "loggedIn": "Giriş yapıldı",
     "loggedOut": "Giriş yapılmadı",
     "login": "Giriş",
-    "logout": "Çıkış"
+    "logout": "Çıkış",
+    "welcomeTo": "Hoşgeldiniz",
+    "simpleBank": "Simple Bank",
+    "enterYourCredentials": "Kullanıcı adı ve şifrenizi giriniz",
+    "usernameOrEmail": "Kullanıcı adı veya E-posta",
+    "password": "Şifre",
+    "dontHaveAnAccount": "Hesabınız yok mu?",
+    "register": "Kayıt ol",
+    "forgotYourPassword": "Şifrenizi mi unuttunuz?",
+    "reset": "Sıfırla"
 }

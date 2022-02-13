@@ -1,0 +1,7 @@
+.authFormTitle {
+    @apply text-xl;
+}
+
+.authFormSubtitle {
+    @apply text-gray-600;
+}

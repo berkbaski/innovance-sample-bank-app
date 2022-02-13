@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 import store from './duck/store';
-import Login from './pages/login';
+import Login from './pages/Auth/Login';
 
 ReactDOM.render(
     <React.StrictMode>
