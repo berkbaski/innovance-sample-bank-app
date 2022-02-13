@@ -1,10 +1,18 @@
 import { AuthState } from '../types/auth';
 import * as Actions from '../actions/auth';
+import { LOCAL_STORAGE_LOGGED_USER } from '../../const';
 
 const initialState: AuthState = {
-    isAuthenticated: false,
-    user: undefined
+    ...initialStateSetter()
 };
+
+function initialStateSetter(): AuthState {
+    const user = localStorage.getItem(LOCAL_STORAGE_LOGGED_USER);
+    return {
+        isAuthenticated: !!user,
+        user: user ? JSON.parse(user) : undefined
+    };
+}
 
 export default function (state = initialState, action: any) {
     switch (action.type) {
