@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AuthLayout from '../../layouts/AuthLayout';
 import styles from './index.module.css';
@@ -16,8 +16,10 @@ import { login } from '../../services/auth';
 import { setIsAuthenticated, setLoggedUser } from '../../duck/actions/auth';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { LOCAL_STORAGE_LOGGED_USER } from '../../const';
+import { AppState } from '../../duck/store';
 
 const Login = () => {
+    const { isAuthenticated } = useSelector((state: AppState) => state.auth);
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
@@ -27,6 +29,12 @@ const Login = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/');
+        }
+    }, []);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
