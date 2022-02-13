@@ -1,3 +1,7 @@
 {
-    "learnReact": "React öğren"
+    "learnReact": "React öğren",
+    "loggedIn": "Giriş yapıldı",
+    "loggedOut": "Giriş yapılmadı",
+    "login": "Giriş",
+    "logout": "Çıkış"
 }

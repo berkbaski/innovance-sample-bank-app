@@ -1,3 +1,7 @@
 {
-    "learnReact": "Learn React"
+    "learnReact": "Learn React",
+    "loggedIn": "Logged in",
+    "loggedOut": "Logged out",
+    "login": "Login",
+    "logout": "Logout"
 }
