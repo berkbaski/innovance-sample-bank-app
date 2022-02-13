@@ -3,3 +3,7 @@
     max-width: 1280px;
     margin: 0 auto;
 }
+
+.error {
+    @apply text-red-500 mb-2;
+}

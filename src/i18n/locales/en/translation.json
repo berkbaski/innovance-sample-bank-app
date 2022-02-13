@@ -12,5 +12,6 @@
     "dontHaveAnAccount": "Don't have an account?",
     "register": "Register",
     "forgotYourPassword": "Forgot your password?",
-    "reset": "Reset"
+    "reset": "Reset",
+    "requiredFieldsMustBeFilled": "Required fields must be filled"
 }

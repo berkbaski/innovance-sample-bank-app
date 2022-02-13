@@ -12,5 +12,6 @@
     "dontHaveAnAccount": "Hesabınız yok mu?",
     "register": "Kayıt ol",
     "forgotYourPassword": "Şifrenizi mi unuttunuz?",
-    "reset": "Sıfırla"
+    "reset": "Sıfırla",
+    "requiredFieldsMustBeFilled": "Gerekli alanları doldurun"
 }
