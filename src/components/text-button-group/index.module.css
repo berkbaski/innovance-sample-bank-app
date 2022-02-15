@@ -1,0 +1,3 @@
+.textButtonGroup {
+    @apply flex justify-center items-center flex-col md:flex-row text-center gap-2;
+}
