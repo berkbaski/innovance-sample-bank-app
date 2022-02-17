@@ -17,6 +17,8 @@ import MyAccounts from './pages/MyAccounts';
 import MyCards from './pages/MyCards';
 import TableData from './pages/TableData';
 
+import Transfer from './pages/Transfer';
+
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
@@ -59,6 +61,22 @@ ReactDOM.render(
                         element={
                             <ProtectedRoute>
                                 <TableData dataType={TableDataType.OUTGOING} />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/transfer/:type"
+                        element={
+                            <ProtectedRoute>
+                                <Transfer />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/transfer"
+                        element={
+                            <ProtectedRoute>
+                                <Transfer />
                             </ProtectedRoute>
                         }
                     />

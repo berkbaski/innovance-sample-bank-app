@@ -41,7 +41,7 @@ export function getFastActions(): Promise<FastAction[]> {
                 {
                     id: 'de095cb2-0d5d-43eb-a962-dd31bd393265',
                     title: i18n.t('fast'),
-                    link: '/fast'
+                    link: '/transfer/fast'
                 },
                 {
                     id: 'cce23f32-51c6-46ad-b830-ab96ac334ace',
@@ -51,7 +51,7 @@ export function getFastActions(): Promise<FastAction[]> {
                 {
                     id: '76475361-4eaa-4548-9157-ee7dc1b2e662',
                     title: i18n.t('eft'),
-                    link: '/eft'
+                    link: '/transfer/eft'
                 }
             ]);
         }, 1500);
