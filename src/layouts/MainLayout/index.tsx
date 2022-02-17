@@ -5,13 +5,13 @@ import { isDesktop } from 'react-device-detect';
 import { FastActions, MenuItem, MenuItemGroup, Spinner, UserCard } from '../../components';
 import { SESSION_STORAGE_LOGGED_MENU_ITEMS } from '../../const';
 import { AppState } from '../../duck/store';
-import { useSessionStorage } from '../../hooks/useSessionStorage';
 import i18n from '../../i18n';
 import { HamburgerIcon, LogoutIcon } from '../../icons';
 import { getFastActions, getLeftMenuItems } from '../../services/menu';
 import { FastAction, LeftMenuItem } from '../../services/menu/types';
 import styles from './index.module.css';
 import { setIsAuthenticated, setLoggedUser } from '../../duck/actions/auth';
+import { getStorageValue, setStorageValue } from '../../lib/storage';
 
 type MainLayoutProps = {
     children: React.ReactNode;
@@ -21,7 +21,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     const location = useLocation();
     const { user } = useSelector((state: AppState) => state.auth);
     const [openMenu, setOpenMenu] = useState<boolean>(false);
-    const [sessionStorageMenuItems, setSessionStorageMenuItems] = useSessionStorage(
+    const sessionStorageMenuItems: { fast: FastAction[]; left: LeftMenuItem[] } = getStorageValue(
         SESSION_STORAGE_LOGGED_MENU_ITEMS
     );
     const [fastMenuItems, setFastMenuItems] = useState<FastAction[]>(() => {
@@ -60,7 +60,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 ([fastMenuItemsResponse, leftMenuItemsResponse]) => {
                     setFastMenuItems(fastMenuItemsResponse);
                     setLeftMenuItems(leftMenuItemsResponse);
-                    setSessionStorageMenuItems({
+                    setStorageValue(SESSION_STORAGE_LOGGED_MENU_ITEMS, {
                         fast: fastMenuItemsResponse,
                         left: leftMenuItemsResponse
                     });
