@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'react-credit-cards/es/styles-compiled.css';
+
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400;600&family=DM+Sans:wght@400;500;700&family=Inter:wght@600&display=swap');
 
 * {
