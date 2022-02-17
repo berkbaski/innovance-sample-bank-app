@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { isDesktop } from 'react-device-detect';
 import { FastActions, MenuItem, MenuItemGroup, UserCard } from '../../components';
 import { SESSION_STORAGE_LOGGED_MENU_ITEMS } from '../../const';
 import { AppState } from '../../duck/store';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import i18n from '../../i18n';
-import { LogoutIcon, SpinnerIcon } from '../../icons';
+import { HamburgerIcon, LogoutIcon, SpinnerIcon } from '../../icons';
 import { getFastActions, getLeftMenuItems } from '../../services/menu';
 import { FastAction, LeftMenuItem } from '../../services/menu/types';
 import styles from './index.module.css';
@@ -16,7 +17,9 @@ type MainLayoutProps = {
 };
 
 const MainLayout = ({ children }: MainLayoutProps) => {
+    const location = useLocation();
     const { user } = useSelector((state: AppState) => state.auth);
+    const [openMenu, setOpenMenu] = useState<boolean>(false);
     const [sessionStorageMenuItems, setSessionStorageMenuItems] = useSessionStorage(
         SESSION_STORAGE_LOGGED_MENU_ITEMS
     );
@@ -25,6 +28,12 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     });
     const [leftMenuItems, setLeftMenuItems] = useState<LeftMenuItem[]>(() => {
         return sessionStorageMenuItems?.left || [];
+    });
+    const [currentMenu] = useState<string>(() => {
+        const selectedFastAction = fastMenuItems.find((f) => f.link === location.pathname);
+        const selectedLeftMenu = leftMenuItems.find((f) => f.link === location.pathname);
+
+        return selectedFastAction?.title || selectedLeftMenu?.title || '';
     });
     const [loading, setLoading] = useState<boolean>(() => {
         return !fastMenuItems?.length || !leftMenuItems?.length;
@@ -47,42 +56,64 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         // eslint-disable-next-line
     }, [fastMenuItems, leftMenuItems]);
 
-    const location = useLocation();
+    const LeftMenuSection = () => (
+        <section className={styles.leftMenu}>
+            {user && (
+                <UserCard
+                    firstName={user.firstName}
+                    lastName={user.lastName}
+                    username={user.username}
+                    leftImage={user.image}
+                    rightImage={LogoutIcon}
+                    rightImageClass="userCardRightImageButton"
+                />
+            )}
+            {loading ? (
+                <div className={styles.loadingContainer}>
+                    <img src={SpinnerIcon} alt="Loading spinner" />
+                </div>
+            ) : (
+                <>
+                    <MenuItemGroup title={i18n.t('myMenu')}>
+                        {leftMenuItems.map((leftMenuItem) => (
+                            <MenuItem
+                                key={`leftMenuItem-${leftMenuItem.id}`}
+                                path={leftMenuItem.link}
+                                isActive={leftMenuItem.link === location.pathname}
+                            >
+                                {leftMenuItem.title}
+                            </MenuItem>
+                        ))}
+                    </MenuItemGroup>
+                    <FastActions title={i18n.t('fastActions')} items={fastMenuItems} />
+                </>
+            )}
+        </section>
+    );
+
+    const TopMenuSection = ({ children }: { children: React.ReactNode }) => (
+        <div className={styles.mobileHeader}>
+            <div className={styles.mobileHeaderContent}>
+                <h5 className={styles.mobileHeaderNavigationText}>{currentMenu}</h5>
+                <img
+                    src={HamburgerIcon}
+                    className={styles.mobileHeaderHamburgerIcon}
+                    onClick={() => setOpenMenu(!openMenu)}
+                    alt=""
+                />
+            </div>
+            {openMenu && children}
+        </div>
+    );
 
     return (
         <div className={['container', styles.layoutContainer].join(' ')}>
-            <section className={styles.leftMenu}>
-                {user && (
-                    <UserCard
-                        firstName={user.firstName}
-                        lastName={user.lastName}
-                        username={user.username}
-                        leftImage={user.image}
-                        rightImage={LogoutIcon}
-                        rightImageClass="userCardRightImageButton"
-                    />
-                )}
-                {loading ? (
-                    <div className={styles.loadingContainer}>
-                        <img src={SpinnerIcon} alt="Loading spinner" />
-                    </div>
-                ) : (
-                    <>
-                        <MenuItemGroup title={i18n.t('myMenu')}>
-                            {leftMenuItems.map((leftMenuItem) => (
-                                <MenuItem
-                                    key={`leftMenuItem-${leftMenuItem.id}`}
-                                    path={leftMenuItem.link}
-                                    isActive={leftMenuItem.link === location.pathname}
-                                >
-                                    {leftMenuItem.title}
-                                </MenuItem>
-                            ))}
-                        </MenuItemGroup>
-                        <FastActions title={i18n.t('fastActions')} items={fastMenuItems} />
-                    </>
-                )}
-            </section>
+            {isDesktop && <LeftMenuSection />}
+            {!isDesktop && (
+                <TopMenuSection>
+                    <LeftMenuSection />
+                </TopMenuSection>
+            )}
             <main className={styles.layoutContent}>{children}</main>
         </div>
     );
