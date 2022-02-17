@@ -7,10 +7,10 @@ const initialState: AuthState = {
 };
 
 function initialStateSetter(): AuthState {
-    const user = sessionStorage.getItem(SESSION_STORAGE_LOGGED_USER);
+    const user = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_LOGGED_USER) || '{}');
     return {
-        isAuthenticated: !!user,
-        user: user ? JSON.parse(user) : undefined
+        isAuthenticated: !!user && Object.keys(user).length > 0,
+        user: user
     };
 }
 
