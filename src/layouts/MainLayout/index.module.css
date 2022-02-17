@@ -10,10 +10,6 @@
     @apply col-span-2 h-screen max-h-screen overflow-x-auto px-4 md:px-0 pt-20 md:pt-0;
 }
 
-.loadingContainer {
-    @apply flex justify-center;
-}
-
 .mobileHeader {
     @apply flex flex-col fixed left-0 right-0 top-0 bg-white min-h-16 px-4 py-4 border-b border-b-gray-300;
 }

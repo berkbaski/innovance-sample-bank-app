@@ -16,3 +16,7 @@
 .error {
     @apply text-red-500 mb-2;
 }
+
+.loading-container {
+    @apply flex justify-center;
+}
