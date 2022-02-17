@@ -31,5 +31,9 @@
     "myOutgoings": "Giderlerim",
     "fast": "Fast",
     "transfer": "Havale",
-    "eft": "EFT"
+    "eft": "EFT",
+    "transactionID": "İşlem Kimliği",
+    "senderFirstLastName": "Gönderenin Adı Soyadı",
+    "price": "Tutar",
+    "transactionDate": "İşlem Tarihi"
 }

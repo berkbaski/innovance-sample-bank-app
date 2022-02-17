@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 import store from './duck/store';
+import { TableDataType } from './lib/tableData';
 
 import Login from './pages/Auth/Login';
 import ForgotPassword from './pages/Auth/ForgotPassword';
@@ -14,6 +15,7 @@ import ProtectedRoute from './pages/ProtectedRoute';
 
 import MyAccounts from './pages/MyAccounts';
 import MyCards from './pages/MyCards';
+import TableData from './pages/TableData';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -41,6 +43,14 @@ ReactDOM.render(
                         element={
                             <ProtectedRoute>
                                 <MyCards />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/my-incomes"
+                        element={
+                            <ProtectedRoute>
+                                <TableData dataType={TableDataType.INCOME} />
                             </ProtectedRoute>
                         }
                     />

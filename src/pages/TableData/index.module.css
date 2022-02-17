@@ -1,0 +1,10 @@
+.tableDataContainer {
+}
+
+.table {
+    @apply w-full;
+}
+
+.tableColumn {
+    @apply w-1/4;
+}
