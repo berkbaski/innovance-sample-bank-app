@@ -35,5 +35,6 @@
     "transactionID": "Transaction ID",
     "senderFirstLastName": "Sender First Last Name",
     "price": "Price",
-    "transactionDate": "Transaction Date"
+    "transactionDate": "Transaction Date",
+    "recipientFirstLastName": "Recipient First Last Name"
 }

@@ -3,6 +3,7 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 import MainLayout from '../../layouts/MainLayout';
 import { TableDataList, TableDataType } from '../../lib/tableData';
 import { Income } from '../../services/income/types';
+import { Outgoing } from '../../services/outgoing/types';
 import { SpinnerIcon } from '../../icons';
 
 type TableDataPageProps = {
@@ -11,8 +12,8 @@ type TableDataPageProps = {
 
 const TableData = ({ dataType }: TableDataPageProps) => {
     const [loading, setLoading] = useState<boolean>();
-    const [columnList, setColumnList] = useState<TableColumn<Income>[]>([]);
-    const [dataList, setDataList] = useState<Income[]>([]);
+    const [columnList, setColumnList] = useState<TableColumn<Income | Outgoing>[]>([]);
+    const [dataList, setDataList] = useState<(Income | Outgoing)[]>([]);
     const currentTableData = useMemo(
         () => TableDataList.find((d) => d.type === dataType),
         [dataType]
@@ -27,7 +28,7 @@ const TableData = ({ dataType }: TableDataPageProps) => {
         });
         //TODO React Hook useEffect has a missing dependency: 'currentTableData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
         // eslint-disable-next-line
-    }, []);
+    }, [dataType]);
 
     return (
         <MainLayout>
