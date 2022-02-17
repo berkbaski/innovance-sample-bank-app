@@ -7,6 +7,7 @@ type UserCardProps = {
     leftImage?: string;
     rightImage?: string;
     rightImageClass?: string;
+    rightImageClick?: () => void;
 };
 
 const UserCard = ({
@@ -15,7 +16,8 @@ const UserCard = ({
     username,
     leftImage,
     rightImage,
-    rightImageClass
+    rightImageClass,
+    rightImageClick
 }: UserCardProps) => {
     const rightImageClasses = [
         styles.userCardRightImage,
@@ -32,7 +34,14 @@ const UserCard = ({
                     <h5 className={styles.userCardUsername}>{username}</h5>
                 </div>
             </div>
-            {rightImage && <img src={rightImage} className={rightImageClasses} alt="" />}
+            {rightImage && (
+                <img
+                    src={rightImage}
+                    className={rightImageClasses}
+                    onClick={rightImageClick}
+                    alt=""
+                />
+            )}
         </div>
     );
 };

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { isDesktop } from 'react-device-detect';
 import { FastActions, MenuItem, MenuItemGroup, Spinner, UserCard } from '../../components';
@@ -11,6 +11,7 @@ import { HamburgerIcon, LogoutIcon } from '../../icons';
 import { getFastActions, getLeftMenuItems } from '../../services/menu';
 import { FastAction, LeftMenuItem } from '../../services/menu/types';
 import styles from './index.module.css';
+import { setIsAuthenticated, setLoggedUser } from '../../duck/actions/auth';
 
 type MainLayoutProps = {
     children: React.ReactNode;
@@ -38,6 +39,19 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     const [loading, setLoading] = useState<boolean>(() => {
         return !fastMenuItems?.length || !leftMenuItems?.length;
     });
+
+    const dispatch = useDispatch();
+
+    const handleLogout = useCallback(() => {
+        const logout = window.confirm(i18n.t('doYouWantToLogout'));
+        if (logout) {
+            localStorage.clear();
+            sessionStorage.clear();
+            dispatch(setLoggedUser(undefined));
+            dispatch(setIsAuthenticated(false));
+        }
+    }, []);
+
     useEffect(() => {
         if (!fastMenuItems?.length || !leftMenuItems.length) {
             Promise.all([getFastActions(), getLeftMenuItems()]).then(
@@ -66,6 +80,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                     leftImage={user.image}
                     rightImage={LogoutIcon}
                     rightImageClass="userCardRightImageButton"
+                    rightImageClick={handleLogout}
                 />
             )}
             {loading ? (
