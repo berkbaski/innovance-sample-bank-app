@@ -8,17 +8,16 @@ import i18n from '../../i18n';
 import { Form, Input, Button, TextButton, TextButtonGroup } from '../../components';
 import { login } from '../../services/auth';
 import { setIsAuthenticated, setLoggedUser } from '../../duck/actions/auth';
-import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { SESSION_STORAGE_LOGGED_USER } from '../../const';
 import { AppState } from '../../duck/store';
 import { isDesktop } from 'react-device-detect';
+import { setStorageValue } from '../../lib/storage';
 
 const Login = () => {
     const { isAuthenticated } = useSelector((state: AppState) => state.auth);
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
-    const [, setSessionStorageUser] = useSessionStorage(SESSION_STORAGE_LOGGED_USER);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -43,7 +42,7 @@ const Login = () => {
             .then((user) => {
                 dispatch(setLoggedUser(user));
                 dispatch(setIsAuthenticated(true));
-                setSessionStorageUser(user);
+                setStorageValue(SESSION_STORAGE_LOGGED_USER, user);
                 navigate('/');
             })
             .catch((err) => {

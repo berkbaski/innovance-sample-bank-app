@@ -37,5 +37,11 @@
     "price": "Price",
     "transactionDate": "Transaction Date",
     "recipientFirstLastName": "Recipient First Last Name",
-    "doYouWantToLogout": "You are exiting. Do you want to continue?"
+    "doYouWantToLogout": "You are exiting. Do you want to continue?",
+    "enterValidIban": "Enter a valid IBAN",
+    "transferSuccessfully": "The transfer was successful",
+    "youCantTransferMoreThanMoney": "You cannot transfer more money than the money in your account",
+    "selectTransferTo": "Select the account you want to transfer to",
+    "enterIbanToPerson": "Enter the IBAN number of the person you want to transfer",
+    "enterPriceToTransfer": "Enter the price you want to transfer"
 }

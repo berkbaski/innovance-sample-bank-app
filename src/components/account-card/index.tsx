@@ -6,16 +6,22 @@ import styles from './index.module.css';
 
 type AccoundCardProps = {
     account: Account;
+    onClick?: () => void;
+    selected?: boolean;
 };
 
-const AccountCard = ({ account }: AccoundCardProps) => {
+const AccountCard = ({ account, onClick, selected }: AccoundCardProps) => {
     const bankDetails = useMemo(() => Banks.find((b) => b.bank === account.bank), [account]);
     const currentyDetails = useMemo(
         () => Currencies.find((c) => c.currency === account.currency),
         [account]
     );
+    const classNames = [
+        styles.accountCard,
+        ...[selected ? styles.accountCardSelected : undefined]
+    ].join(' ');
     return (
-        <div className={styles.accountCard}>
+        <div className={classNames} onClick={onClick}>
             <div className={styles.accountCardInfo}>
                 <h5 className={styles.accountCardNumber}>{account.accountNumber}</h5>
                 <h5 className={styles.accountCardIban}>{account.iban}</h5>

@@ -1,0 +1,38 @@
+.transferContainer {
+}
+
+.transferField {
+    @apply text-xl mb-2;
+}
+
+.transferSubField {
+    @apply text-base mb-2;
+}
+
+.transferAccounts {
+    @apply grid grid-cols-2 gap-x-4 gap-y-4 h-52 max-h-52 overflow-y-auto p-4 border border-gray-100 rounded-md mb-4;
+}
+
+.transferToIbanField {
+    @apply w-1/2 mb-4 m-auto;
+}
+
+.transferPriceField {
+    @apply w-1/2 mb-4 m-auto;
+}
+
+.transferTypeField {
+    @apply w-1/2 mb-4 m-auto;
+}
+
+.transferTypeButton {
+    @apply bg-gray-100 text-gray-500 border border-gray-300 px-4 py-2 rounded-md mr-4;
+}
+
+.transferTypeButtonSelected {
+    @apply text-white bg-gray-500;
+}
+
+.transferButtonField {
+    @apply w-1/2 m-auto;
+}
