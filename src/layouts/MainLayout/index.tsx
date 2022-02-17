@@ -50,6 +50,8 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             dispatch(setLoggedUser(undefined));
             dispatch(setIsAuthenticated(false));
         }
+        // TODO
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
