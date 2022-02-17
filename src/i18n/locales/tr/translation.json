@@ -37,5 +37,11 @@
     "price": "Tutar",
     "transactionDate": "İşlem Tarihi",
     "recipientFirstLastName": "Alanın Adı Soyadı",
-    "doYouWantToLogout": "Çıkış yapıyorsunuz. Devam etmek istiyor musunuz?"
+    "doYouWantToLogout": "Çıkış yapıyorsunuz. Devam etmek istiyor musunuz?",
+    "enterValidIban": "Geçerli bir IBAN Numarası girin",
+    "transferSuccessfully": "Transfer başarılı",
+    "youCantTransferMoreThanMoney": "Hesabınızdaki paradan daha fazlasını transfer edemezsiniz",
+    "selectTransferTo": "Transfer etmek istediğiniz hesabı seçin",
+    "enterIbanToPerson": "Transfer etmek istediğiniz kişinin IBAN numarasını giriniz",
+    "enterPriceToTransfer": "Transfer etmek istediğiniz fiyatı giriniz"
 }

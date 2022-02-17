@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FastAction } from '../../services/menu/types';
 import styles from './index.module.css';
 
@@ -16,7 +17,7 @@ const FastActions = ({ title, items }: FastActionsProp) => {
                         key={`fast-menu-item-${item.id}`}
                         className={styles.fastActionsMenuButton}
                     >
-                        {item.title}
+                        <Link to={item.link}>{item.title}</Link>
                     </button>
                 ))}
             </div>
