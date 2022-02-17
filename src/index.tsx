@@ -54,6 +54,14 @@ ReactDOM.render(
                             </ProtectedRoute>
                         }
                     />
+                    <Route
+                        path="/my-outgoings"
+                        element={
+                            <ProtectedRoute>
+                                <TableData dataType={TableDataType.OUTGOING} />
+                            </ProtectedRoute>
+                        }
+                    />
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/register" element={<Register />} />

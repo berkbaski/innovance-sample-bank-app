@@ -35,5 +35,6 @@
     "transactionID": "İşlem Kimliği",
     "senderFirstLastName": "Gönderenin Adı Soyadı",
     "price": "Tutar",
-    "transactionDate": "İşlem Tarihi"
+    "transactionDate": "İşlem Tarihi",
+    "recipientFirstLastName": "Alanın Adı Soyadı"
 }
