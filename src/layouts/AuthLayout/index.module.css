@@ -3,7 +3,7 @@
 }
 
 .authContainer {
-    @apply grid grid-cols-1 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-4;
+    @apply grid grid-cols-1 md:grid-cols-3 grid-rows-2 md:grid-rows-1 gap-y-4 md:gap-y-0 md:gap-4 p-4 md:p-0;
 }
 
 .authContainerLeftSection {
