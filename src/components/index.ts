@@ -8,3 +8,4 @@ export { default as MenuItem } from './menu/item';
 export { default as MenuItemGroup } from './menu/item/group';
 export { default as FastActions } from './fast-actions';
 export { default as UserCard } from './user-card';
+export { default as Spinner } from './spinner';

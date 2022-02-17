@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { Card } from '../../services/cards/types';
 import { getCards } from '../../services/cards';
 import styles from './index.module.css';
-import { SpinnerIcon } from '../../icons';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../duck/store';
+import { Spinner } from '../../components';
 
 const MyCards = () => {
     const [loading, setLoading] = useState<boolean>();
@@ -23,11 +23,7 @@ const MyCards = () => {
 
     return (
         <MainLayout>
-            {loading && (
-                <div className="loading-container">
-                    <img src={SpinnerIcon} alt="Loading spinner" />
-                </div>
-            )}
+            <Spinner show={loading} />
             <div className={styles.cardsContainer}>
                 {cards.map((card) => (
                     <CreditCard

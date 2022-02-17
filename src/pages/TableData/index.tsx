@@ -4,7 +4,7 @@ import MainLayout from '../../layouts/MainLayout';
 import { TableDataList, TableDataType } from '../../lib/tableData';
 import { Income } from '../../services/income/types';
 import { Outgoing } from '../../services/outgoing/types';
-import { SpinnerIcon } from '../../icons';
+import { Spinner } from '../../components';
 
 type TableDataPageProps = {
     dataType: TableDataType;
@@ -33,9 +33,7 @@ const TableData = ({ dataType }: TableDataPageProps) => {
     return (
         <MainLayout>
             {loading ? (
-                <div className="loading-container">
-                    <img src={SpinnerIcon} alt="Loading spinner" />
-                </div>
+                <Spinner show={loading} />
             ) : (
                 <DataTable columns={columnList} data={dataList} />
             )}

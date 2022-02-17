@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { isDesktop } from 'react-device-detect';
-import { FastActions, MenuItem, MenuItemGroup, UserCard } from '../../components';
+import { FastActions, MenuItem, MenuItemGroup, Spinner, UserCard } from '../../components';
 import { SESSION_STORAGE_LOGGED_MENU_ITEMS } from '../../const';
 import { AppState } from '../../duck/store';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import i18n from '../../i18n';
-import { HamburgerIcon, LogoutIcon, SpinnerIcon } from '../../icons';
+import { HamburgerIcon, LogoutIcon } from '../../icons';
 import { getFastActions, getLeftMenuItems } from '../../services/menu';
 import { FastAction, LeftMenuItem } from '../../services/menu/types';
 import styles from './index.module.css';
@@ -69,9 +69,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 />
             )}
             {loading ? (
-                <div className="loading-container">
-                    <img src={SpinnerIcon} alt="Loading spinner" />
-                </div>
+                <Spinner show={loading} />
             ) : (
                 <>
                     <MenuItemGroup title={i18n.t('myMenu')}>
