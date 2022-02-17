@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AccountCard } from '../../components';
-import { SpinnerIcon } from '../../icons';
+import { AccountCard, Spinner } from '../../components';
 import MainLayout from '../../layouts/MainLayout';
 import { getAccounts } from '../../services/account';
 import { Account } from '../../services/account/types';
@@ -20,11 +19,7 @@ const MyAccounts = () => {
 
     return (
         <MainLayout>
-            {loading && (
-                <div className="loading-container">
-                    <img src={SpinnerIcon} alt="Loading spinner" />
-                </div>
-            )}
+            <Spinner show={loading} />
             <div className={styles.myAccountsContainer}>
                 {accounts.map((account) => (
                     <AccountCard key={`account-${account.id}`} account={account} />
