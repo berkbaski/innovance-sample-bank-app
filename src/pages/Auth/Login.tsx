@@ -11,6 +11,7 @@ import { setIsAuthenticated, setLoggedUser } from '../../duck/actions/auth';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { SESSION_STORAGE_LOGGED_USER } from '../../const';
 import { AppState } from '../../duck/store';
+import { isDesktop } from 'react-device-detect';
 
 const Login = () => {
     const { isAuthenticated } = useSelector((state: AppState) => state.auth);
@@ -76,12 +77,14 @@ const Login = () => {
                 <TextButtonGroup>
                     <TextButton>
                         {i18n.t('dontHaveAnAccount') + ' '}
+                        {!isDesktop && <br />}
                         <b>
                             <Link to="/register">{i18n.t('register')}</Link>
                         </b>
                     </TextButton>
                     <TextButton>
                         {i18n.t('forgotYourPassword') + ' '}
+                        {!isDesktop && <br />}
                         <b>
                             <Link to="/forgot-password">{i18n.t('reset')}</Link>
                         </b>
