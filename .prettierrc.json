@@ -1,5 +1,5 @@
 {
-    "printWidth": 80,
+    "printWidth": 100,
     "proseWrap": "always",
     "singleQuote": true,
     "tabWidth": 4,
@@ -7,5 +7,6 @@
     "trailingComma": "none",
     "semi": true,
     "endOfLine": "lf",
-    "arrowParens": "always"
+    "arrowParens": "always",
+    "no-switch-case-fall-through": true
 }

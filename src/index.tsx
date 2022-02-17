@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 import store from './duck/store';
+import { TableDataType } from './lib/tableData';
 
 import Login from './pages/Auth/Login';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import Register from './pages/Auth/Register';
 import ProtectedRoute from './pages/ProtectedRoute';
+
+import MyAccounts from './pages/MyAccounts';
+import MyCards from './pages/MyCards';
+import TableData from './pages/TableData';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -22,15 +26,44 @@ ReactDOM.render(
                         path="/"
                         element={
                             <ProtectedRoute>
-                                <App />
+                                <Navigate to="/my-accounts" replace />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/my-accounts"
+                        element={
+                            <ProtectedRoute>
+                                <MyAccounts />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/my-cards"
+                        element={
+                            <ProtectedRoute>
+                                <MyCards />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/my-incomes"
+                        element={
+                            <ProtectedRoute>
+                                <TableData dataType={TableDataType.INCOME} />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/my-outgoings"
+                        element={
+                            <ProtectedRoute>
+                                <TableData dataType={TableDataType.OUTGOING} />
                             </ProtectedRoute>
                         }
                     />
                     <Route path="/login" element={<Login />} />
-                    <Route
-                        path="/forgot-password"
-                        element={<ForgotPassword />}
-                    />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/register" element={<Register />} />
                 </Routes>
             </BrowserRouter>

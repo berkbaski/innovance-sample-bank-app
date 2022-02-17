@@ -1,0 +1,27 @@
+.layoutContainer {
+    @apply grid grid-cols-1 gap-0 md:grid-cols-3 md:gap-4 md:mt-4;
+}
+
+.leftMenu {
+    @apply col-span-1 mt-4 md:mt-0;
+}
+
+.layoutContent {
+    @apply col-span-2 h-screen max-h-screen overflow-x-auto px-4 md:px-0 pt-20 md:pt-0;
+}
+
+.mobileHeader {
+    @apply flex flex-col fixed left-0 right-0 top-0 bg-white min-h-16 px-4 py-4 border-b border-b-gray-300 z-10;
+}
+
+.mobileHeaderContent {
+    @apply flex justify-between items-center;
+}
+
+.mobileHeaderHamburgerIcon {
+    @apply w-8 h-8;
+}
+
+.mobileHeaderNavigationText {
+    @apply text-2xl;
+}

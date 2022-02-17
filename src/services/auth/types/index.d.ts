@@ -4,6 +4,7 @@ export type User = {
     email: string;
     firstName: string;
     lastName: string;
+    image: string;
 };
 
 export type RegisterPayload = {
