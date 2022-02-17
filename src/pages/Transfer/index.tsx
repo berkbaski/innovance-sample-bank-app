@@ -55,7 +55,7 @@ const Transfer = () => {
                 account
             });
         },
-        [accounts]
+        [formData]
     );
     const transferTypeOnClick = (transferType: TransferType) => {
         setFormData({
@@ -206,7 +206,7 @@ const Transfer = () => {
 
                 <div className={styles.transferButtonField}>
                     <Button onClick={transfer}>
-                        {transferring ? <img src={SpinnerIcon} width={30} /> : 'Transfer'}
+                        {transferring ? <img src={SpinnerIcon} width={30} alt="" /> : 'Transfer'}
                     </Button>
                 </div>
             </div>
