@@ -22,5 +22,14 @@
     "firstName": "First Name",
     "lastName": "Last Name",
     "email": "Email",
-    "weSentAnEmailForConfirmation": "Registration successful. We have sent an email for confirmation"
+    "weSentAnEmailForConfirmation": "Registration successful. We have sent an email for confirmation",
+    "myMenu": "My Menu",
+    "fastActions": "Fast Actions",
+    "myAccounts": "My Accounts",
+    "myCards": "My Cards",
+    "myIncomes": "My Incomes",
+    "myOutgoings": "My Outgoings",
+    "fast": "Fast",
+    "transfer": "Transfer",
+    "eft": "EFT"
 }

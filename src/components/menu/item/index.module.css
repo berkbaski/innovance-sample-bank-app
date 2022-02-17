@@ -1,0 +1,7 @@
+.menuItem {
+    @apply text-lg mb-4 text-gray-700 cursor-pointer;
+}
+
+.activeMenuItem {
+    @apply border-l-4 p-1 border-l-gray-300 font-semibold;
+}

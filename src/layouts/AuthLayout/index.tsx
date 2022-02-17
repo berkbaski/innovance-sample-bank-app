@@ -15,11 +15,9 @@ const AuthLayout = ({ children }: Props) => {
             </h1>
             <div className={styles.authContainer}>
                 <section className={styles.authContainerLeftSection}>
-                    <img src={WorkIcon} className="max-h-screen" />
+                    <img src={WorkIcon} className="max-h-screen" alt={i18n.t('simpleBank')} />
                 </section>
-                <main className={styles.authContainerRightSection}>
-                    {children}
-                </main>
+                <main className={styles.authContainerRightSection}>{children}</main>
             </div>
         </div>
     );

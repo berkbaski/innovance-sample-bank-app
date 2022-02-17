@@ -5,17 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthLayout from '../../layouts/AuthLayout';
 import styles from './index.module.css';
 import i18n from '../../i18n';
-import {
-    Form,
-    Input,
-    Button,
-    TextButton,
-    TextButtonGroup
-} from '../../components';
+import { Form, Input, Button, TextButton, TextButtonGroup } from '../../components';
 import { login } from '../../services/auth';
 import { setIsAuthenticated, setLoggedUser } from '../../duck/actions/auth';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { LOCAL_STORAGE_LOGGED_USER } from '../../const';
+import { useSessionStorage } from '../../hooks/useSessionStorage';
+import { SESSION_STORAGE_LOGGED_USER } from '../../const';
 import { AppState } from '../../duck/store';
 
 const Login = () => {
@@ -23,9 +17,7 @@ const Login = () => {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
-    const [localStorageUser, setLocalStorageUser] = useLocalStorage(
-        LOCAL_STORAGE_LOGGED_USER
-    );
+    const [, setSessionStorageUser] = useSessionStorage(SESSION_STORAGE_LOGGED_USER);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -34,7 +26,9 @@ const Login = () => {
         if (isAuthenticated) {
             navigate('/');
         }
-    }, []);
+        // TODO React Hook useEffect has a missing dependency: 'navigate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+        // eslint-disable-next-line
+    }, [isAuthenticated]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -48,7 +42,7 @@ const Login = () => {
             .then((user) => {
                 dispatch(setLoggedUser(user));
                 dispatch(setIsAuthenticated(true));
-                setLocalStorageUser(user);
+                setSessionStorageUser(user);
                 navigate('/');
             })
             .catch((err) => {
@@ -59,9 +53,7 @@ const Login = () => {
     return (
         <AuthLayout>
             <h1 className={styles.authFormTitle}>{i18n.t('login')}</h1>
-            <p className={styles.authFormSubtitle}>
-                {i18n.t('enterYourCredentials')}
-            </p>
+            <p className={styles.authFormSubtitle}>{i18n.t('enterYourCredentials')}</p>
 
             <Form onSubmit={handleSubmit}>
                 <Input
@@ -78,11 +70,7 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                {error && (
-                    <h5 className="error">
-                        {i18n.t('requiredFieldsMustBeFilled')}
-                    </h5>
-                )}
+                {error && <h5 className="error">{i18n.t('requiredFieldsMustBeFilled')}</h5>}
                 <Button className="mb-4">{i18n.t('login')}</Button>
                 <hr className="mb-4" />
                 <TextButtonGroup>

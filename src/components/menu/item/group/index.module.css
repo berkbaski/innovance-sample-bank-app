@@ -1,0 +1,7 @@
+.menuItemGroup {
+    @apply border-b border-b-gray-300 mb-4;
+}
+
+.menuItemGroupTitle {
+    @apply text-gray-500 font-light mb-2;
+}
