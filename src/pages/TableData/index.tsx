@@ -25,6 +25,8 @@ const TableData = ({ dataType }: TableDataPageProps) => {
             setLoading(false);
             setDataList(response);
         });
+        //TODO React Hook useEffect has a missing dependency: 'currentTableData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, []);
 
     return (
