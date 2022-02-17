@@ -1,0 +1,27 @@
+.userCard {
+    @apply flex items-center justify-between gap-4 mb-4 bg-gray-50 px-4 py-2 rounded-lg shadow-md;
+}
+
+.userCardContent {
+    @apply flex items-center gap-4;
+}
+
+.userCardFirstLastName {
+    @apply text-2xl capitalize;
+}
+
+.userCardUsername {
+    @apply text-lg capitalize text-gray-500;
+}
+
+.userCardLeftImage {
+    @apply w-14 h-14 object-cover rounded-full;
+}
+
+.userCardRightImage {
+    @apply w-4 h-4 object-cover;
+}
+
+.userCardRightImageButton {
+    @apply cursor-pointer;
+}

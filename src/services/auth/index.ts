@@ -8,7 +8,8 @@ export function login(username: string, password: string): Promise<User> {
                 username: username,
                 firstName: 'John',
                 lastName: 'Doe',
-                email: 'john@doe.com'
+                email: 'john@doe.com',
+                image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
             });
         }, 500);
     });

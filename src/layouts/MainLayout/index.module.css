@@ -1,0 +1,15 @@
+.layoutContainer {
+    @apply grid grid-cols-3 gap-4 mt-4;
+}
+
+.leftMenu {
+    @apply col-span-1;
+}
+
+.layoutContent {
+    @apply col-span-2 h-screen max-h-screen overflow-x-auto;
+}
+
+.loadingContainer {
+    @apply flex justify-center;
+}
