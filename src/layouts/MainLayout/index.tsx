@@ -69,7 +69,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 />
             )}
             {loading ? (
-                <div className={styles.loadingContainer}>
+                <div className="loading-container">
                     <img src={SpinnerIcon} alt="Loading spinner" />
                 </div>
             ) : (

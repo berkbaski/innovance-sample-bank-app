@@ -1,19 +1,38 @@
-const AccountCard = () => {
+import { useMemo } from 'react';
+import { Account } from '../../services/account/types';
+import Banks from '../../const/bank';
+import Currencies from '../../const/currency';
+import styles from './index.module.css';
+
+type AccoundCardProps = {
+    account: Account;
+};
+
+const AccountCard = ({ account }: AccoundCardProps) => {
+    const bankDetails = useMemo(() => Banks.find((b) => b.bank === account.bank), [account]);
+    const currentyDetails = useMemo(
+        () => Currencies.find((c) => c.currency === account.currency),
+        [account]
+    );
     return (
-        <div className="bg-gray-100 px-4 py-2 rounded-md">
-            <div className="flex flex-row justify-between mb-2">
-                <h5 className="font-bold">068 - 6895967</h5>
-                <h5 className="font-light">TR16 0006 2579 5778 4142 6147 27</h5>
+        <div className={styles.accountCard}>
+            <div className={styles.accountCardInfo}>
+                <h5 className={styles.accountCardNumber}>{account.accountNumber}</h5>
+                <h5 className={styles.accountCardIban}>{account.iban}</h5>
             </div>
-            <h3 className="text-4xl font-bold mb-2">$5000</h3>
-            <div className="flex flex-row justify-between items-center">
+            <h3 className={styles.accountCardPrice}>
+                {account.price} {currentyDetails?.sign}
+            </h3>
+            <div className={styles.accountCardBankDetails}>
                 <div>
-                    <h6>Garanti Bank / Galatasaray</h6>
+                    <h6>
+                        {bankDetails?.name} / {account.location.district}
+                    </h6>
                 </div>
                 <img
-                    className="w-12 h-12 rounded-full"
-                    alt="Garanti bank"
-                    src="https://play-lh.googleusercontent.com/COWSAHa7drbVvCgIkZ4KLxZO78xu8fI7Jg_OX57Y1WBAypwkjqW7TMfTbv5bwX4TbPw9"
+                    className={styles.accountCardBankImage}
+                    alt={bankDetails?.name}
+                    src={bankDetails?.image}
                 />
             </div>
         </div>
