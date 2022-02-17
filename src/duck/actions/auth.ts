@@ -8,7 +8,7 @@ export const setIsAuthenticated = (isAuthenticated: boolean) => ({
     isAuthenticated
 });
 
-export const setLoggedUser = (user: User) => ({
+export const setLoggedUser = (user?: User) => ({
     type: SET_LOGGED_USER,
     user
 });

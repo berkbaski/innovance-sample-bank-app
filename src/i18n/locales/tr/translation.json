@@ -36,5 +36,6 @@
     "senderFirstLastName": "Gönderenin Adı Soyadı",
     "price": "Tutar",
     "transactionDate": "İşlem Tarihi",
-    "recipientFirstLastName": "Alanın Adı Soyadı"
+    "recipientFirstLastName": "Alanın Adı Soyadı",
+    "doYouWantToLogout": "Çıkış yapıyorsunuz. Devam etmek istiyor musunuz?"
 }
